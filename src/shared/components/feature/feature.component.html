@@ -1,0 +1,17 @@
+<img [src]="imageSrc()" [alt]="imageAlt()" class="min-w-0 flex-1 object-cover rounded" />
+
+<div class="flex-1 flex flex-col gap-4">
+  <ui-date [datetime]="datetime()"></ui-date>
+
+  <h1 class="text-medium font-bold text-2xl leading-tight">
+    {{ title() }}
+  </h1>
+
+  <p class="text-medium">
+    {{ description() }}
+  </p>
+
+  <a uiButton [routerLink]="ctaRoute()" class="self-end mt-auto">
+    {{ ctaLabel() }}
+  </a>
+</div>
