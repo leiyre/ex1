@@ -7,7 +7,7 @@ import { DateComponent } from '../date/date.component';
   imports: [DateComponent],
   host: {
     class:
-      'block overflow-hidden rounded shadow bg-surface-card no-underline transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary',
+      'flex flex-col gap-4 bg-surface-card focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary',
   },
   templateUrl: './card.component.html',
 })

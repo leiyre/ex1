@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  computed,
-  inject,
-  input,
-} from '@angular/core';
+import { Component, ElementRef, computed, inject, input } from '@angular/core';
 
 export type ButtonVariant = 'primary';
 export type ButtonSize = 'md';
@@ -30,11 +24,11 @@ export class ButtonComponent {
 
   private readonly base = [
     'inline-flex items-center justify-center gap-2',
-    'relative font-semibold leading-none tracking-wide',
+    'relative font-semibold leading-none',
     'rounded border-2 cursor-pointer select-none',
     'transition-all duration-200 ease-in-out',
+    'hover:bg-primary-dark hover:border-primary-dark',
     'focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary',
-    'active:translate-y-px',
   ].join(' ');
 
   private readonly sizes: Record<ButtonSize, string> = {
