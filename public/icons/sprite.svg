@@ -56,12 +56,12 @@
       <path
         d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
         stroke="var(--icon-primary, currentColor)"
-        stroke-width="1.5"
+        stroke-width="2"
       />
       <path
         d="M20 20L22 22"
         stroke="var(--icon-primary, currentColor)"
-        stroke-width="1.5"
+        stroke-width="2"
         stroke-linecap="round"
       />
     </symbol>
