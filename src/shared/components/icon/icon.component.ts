@@ -6,7 +6,7 @@ export type IconVariant = 'default';
 @Component({
   selector: 'svg[uiIcon]',
   standalone: true,
-  template: `<svg:use [attr.href]="'#icon-' + name()"></svg:use>`,
+  template: `<svg:use [attr.href]="'/icons/sprite.svg#icon-' + name()"></svg:use>`,
   host: {
     '[class]': 'hostClasses()',
     '[attr.viewBox]': '"0 0 24 24"',
