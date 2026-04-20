@@ -1,0 +1,8 @@
+<div class="relative overflow-hidden aspect-video">
+  <img [src]="imageSrc()" [alt]="imageAlt()" class="w-full h-full object-cover" />
+</div>
+<div class="p-4 flex flex-col gap-2">
+  <ui-date [datetime]="datetime()"></ui-date>
+  <h1 class="text-xl font-bold text-text-high">{{ title() }}</h1>
+  <h2 class="text-base font-medium text-text-medium">{{ description() }}</h2>
+</div>
