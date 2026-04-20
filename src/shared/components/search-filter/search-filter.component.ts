@@ -1,4 +1,4 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
@@ -7,20 +7,13 @@ import { IconComponent } from '../icon/icon.component';
   imports: [IconComponent],
   templateUrl: './search-filter.component.html',
   host: {
-    class: 'bg-surface-input mb-6 rounded flex items-center gap-2 p-2',
-    '[class.ring-3]': 'focused()',
-    '[class.ring-primary]': 'focused()',
+    class: 'relative',
   },
 })
 export class SearchFilterComponent {
-  protected focused = signal(false);
-
-  onFocus() {
-    this.focused.set(true);
-  }
-  onBlur() {
-    this.focused.set(false);
-  }
+  readonly id = input<string>('search-filter');
+  readonly idControls = input<string>('search-results');
+  readonly resultsCount = input(0);
   queryChange = output<string>();
 
   onQueryInput(event: Event): void {

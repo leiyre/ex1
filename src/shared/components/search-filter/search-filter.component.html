@@ -1,5 +1,10 @@
-<label for="search" class="sr-only">Filtrar resultados</label>
-<svg uiIcon name="search" aria-hidden="true"></svg>
-<input type="text" id="search" autocomplete="off" aria-placeholder="Lorem ipsum dolor sit"
-    class="w-full p-2 outline-none focus-visible:outline-none" (input)="onQueryInput($event)" (focus)="onFocus()"
-    (blur)="onBlur()" />
+<form role="search" (submit)="$event.preventDefault()"
+    class="relative bg-surface-input rounded flex items-center gap-2 p-2 focus-within:ring-3 focus-within:ring-primary">
+    <label [for]="id()" class="sr-only">Filtrar resultados</label>
+    <svg uiIcon size="sm" name="search" aria-hidden="true" class="absolute left-4 top-1/2 -translate-y-1/2"></svg>
+    <input type="search" [id]="id()" autocomplete="off" [aria-controls]="idControls()"
+        class="w-full pl-8 outline-none focus-visible:outline-none" (input)="onQueryInput($event)" />
+</form>
+<p aria-live="polite" aria-atomic="true" class="sr-only">
+    {{ resultsCount() }} resultados encontrados
+</p>
