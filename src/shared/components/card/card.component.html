@@ -1,8 +1,22 @@
-<div class="relative rounded overflow-hidden aspect-video">
-  <img [src]="imageSrc()" [alt]="imageAlt()" class="w-full h-full object-cover" />
+<div class="flex relative rounded overflow-hidden">
+  <img [src]="imageSrc()" [alt]="imageAlt()" loading="lazy" width="600" height="400"
+    class="flex-1 object-cover transition-transform duration-300 group-hover:scale-105" />
 </div>
+
 <div class="flex flex-col gap-4">
-  <ui-date [datetime]="datetime()"></ui-date>
-  <h1 class="text-xl font-bold text-text-high">{{ title() }}</h1>
-  <h2 class="text-base font-medium text-text-medium line-clamp-6">{{ description() }}</h2>
+  <ui-date [datetime]="datetime()" />
+
+  <h3 class="text-2xl font-bold text-high leading-tight">
+    @if (route()) {
+    <a [routerLink]="route()" class="after:absolute after:inset-0 focus-visible:outline-none">
+      {{ title() }}
+    </a>
+    } @else {
+    {{ title() }}
+    }
+  </h3>
+
+  <p class="text-base text-medium line-clamp-6">
+    {{ description() }}
+  </p>
 </div>

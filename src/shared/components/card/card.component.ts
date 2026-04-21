@@ -1,20 +1,22 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { DateComponent } from '../date/date.component';
-
 @Component({
-  selector: 'a[uiCard]',
+  selector: 'article[uiCard]',
   standalone: true,
-  imports: [DateComponent],
+  imports: [DateComponent, RouterLink],
   host: {
     class:
-      'flex flex-col gap-4 bg-surface-card focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary',
+      'relative flex flex-col gap-4 bg-surface-card [&:has(:focus-visible)]:ring-3 [&:has(:focus-visible)]:ring-primary',
+    '[class.group]': 'route()',
   },
   templateUrl: './card.component.html',
 })
 export class CardComponent {
   imageSrc = input<string>('https://placehold.co/600x400');
-  imageAlt = input<string>('Card image');
+  imageAlt = input<string>('');
   description = input.required<string>();
   title = input.required<string>();
   datetime = input.required<string>();
+  route = input<string>('/');
 }
