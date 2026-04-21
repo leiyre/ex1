@@ -7,7 +7,7 @@ import { IconComponent } from '../icon/icon.component';
   imports: [IconComponent],
   templateUrl: './search-filter.component.html',
   host: {
-    class: 'relative',
+    class: 'relative min-w-[300px]',
   },
 })
 export class SearchFilterComponent {
