@@ -1,0 +1,22 @@
+<img [src]="imageSrc()" [alt]="imageAlt()" class="absolute inset-0 w-full h-full object-cover" loading="lazy"
+    width="400" height="600" />
+
+<div class="relative min-h-[175px] mt-auto p-5 flex flex-col gap-2 w-full bg-gradient-to-t from-black  to-transparent">
+
+    <h3 [id]="cardOverlayTitleId" class="font-bold text-xl leading-tight text-inverse">
+        {{ title() }}
+    </h3>
+
+    <p class="text-sm text-inverse">
+        {{ description() }}
+    </p>
+
+    @if (downloadUrl()) {
+    <a [href]="downloadUrl()" [download]="downloadName() || title()" [attr.aria-labelledby]="cardOverlayTitleId" class="inline-flex items-center mt-auto gap-2 font-semibold text-sm text-inverse
+             focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2
+             hover:underline">
+        {{ ctaLabel() }}
+        <svg uiIcon name="download" class="text-white" aria-hidden="true"></svg>
+    </a>
+    }
+</div>
