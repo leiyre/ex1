@@ -20,4 +20,7 @@ export class FeatureComponent {
   description = input.required<string>();
   ctaLabel = input<string>('Ver mas');
   ctaRoute = input<string[]>(['/']);
+
+  private static uid = 0;
+  protected readonly featureTitleId = `feature-title-${++FeatureComponent.uid}`;
 }

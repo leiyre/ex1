@@ -3,15 +3,15 @@
 <div class="flex-1 flex flex-col gap-4">
   <ui-date [datetime]="datetime()"></ui-date>
 
-  <h1 class="text-medium font-bold text-2xl leading-tight">
+  <h2 [id]="featureTitleId" class="text-medium font-bold text-2xl leading-tight">
     {{ title() }}
-  </h1>
+  </h2>
 
   <p class="text-medium">
     {{ description() }}
   </p>
 
-  <a uiButton [routerLink]="ctaRoute()" class="self-end mt-auto">
+  <a uiButton [routerLink]="ctaRoute()" class="self-end mt-auto" [attr.aria-labelledby]="featureTitleId">
     {{ ctaLabel() }}
   </a>
 </div>
