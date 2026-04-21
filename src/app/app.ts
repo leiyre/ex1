@@ -1,12 +1,135 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, computed, signal } from '@angular/core';
+import { CardComponent } from '../shared/components/card/card.component';
+import { CardOverlayComponent } from '../shared/components/card-overlay/card-overlay.component';
+import { FeatureComponent } from '../shared/components/feature/feature.component';
+import { SearchFilterComponent } from '../shared/components/search-filter/search-filter.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CardComponent, CardOverlayComponent, FeatureComponent, SearchFilterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('ex1');
+  protected readonly title = signal('Challenge 1');
+  protected readonly searchQuery = signal('');
+  protected readonly cards = [
+    {
+      route: '/example',
+      id: 1,
+      imageSrc: 'https://placehold.co/600x400',
+      imageAlt: 'Imagen card analitica',
+      title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+      datetime: '2026-04-18',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.',
+    },
+    {
+      route: '/example',
+      id: 2,
+      imageSrc: 'https://placehold.co/600x400',
+      imageAlt: 'Imagen card ventas',
+      title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+      datetime: '2026-04-15',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.',
+    },
+    {
+      route: '/example',
+      id: 3,
+      imageSrc: 'https://placehold.co/600x400',
+      imageAlt: 'Imagen card clientes',
+      title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+      datetime: '2026-04-12',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.',
+    },
+    {
+      route: '/example',
+      id: 4,
+      imageSrc: 'https://placehold.co/600x400',
+      imageAlt: 'Imagen card automatizaciones',
+      title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+      datetime: '2026-04-09',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.',
+    },
+    {
+      route: '/example',
+      id: 5,
+      imageSrc: 'https://placehold.co/600x400',
+      imageAlt: 'Imagen card reportes',
+      title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+      datetime: '2026-04-06',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.',
+    },
+    {
+      route: '/example',
+      id: 6,
+      imageSrc: 'https://placehold.co/600x400',
+      imageAlt: 'Imagen card configuracion',
+      title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+      datetime: '2026-04-03',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.',
+    },
+  ];
+  protected readonly cardsOverlay = [
+    {
+      id: 1,
+      imageSrc: 'https://placehold.co/400x600',
+      imageAlt: 'Imagen card overlay',
+      title: 'Lorem ipsum',
+      description: 'Lorem ipsum dolor sit amet consectetur.',
+      ctaLabel: 'Lorem ipsum',
+      downloadUrl: 'https://www.google.com',
+      downloadName: 'Lorem',
+    },
+    {
+      id: 2,
+      imageSrc: 'https://placehold.co/400x600',
+      imageAlt: 'Imagen card overlay',
+      title: 'Lorem ipsum',
+      description: 'Lorem ipsum dolor sit amet consectetur.',
+      ctaLabel: 'Lorem ipsum',
+      downloadUrl: 'https://www.google.com',
+      downloadName: 'Lorem',
+    },
+    {
+      id: 3,
+      imageSrc: 'https://placehold.co/400x600',
+      imageAlt: 'Imagen card overlay',
+      title: 'Lorem ipsum',
+      description: 'Lorem ipsum dolor sit amet consectetur.',
+      ctaLabel: 'Lorem ipsum',
+      downloadUrl: 'https://www.google.com',
+      downloadName: 'Lorem',
+    },
+    {
+      id: 4,
+      imageSrc: 'https://placehold.co/400x600',
+      imageAlt: 'Imagen card overlay',
+      title: 'Lorem ipsum',
+      description: 'Lorem ipsum dolor sit amet consectetur.',
+      ctaLabel: 'Lorem ipsum',
+      downloadUrl: 'https://www.google.com',
+      downloadName: 'Lorem',
+    },
+  ];
+  protected readonly filteredCards = computed(() => {
+    const query = this.searchQuery().trim().toLowerCase();
+    if (!query) {
+      return this.cards;
+    }
+
+    return this.cards.filter((card) => {
+      const searchableContent = `${card.title} ${card.description}`.toLowerCase();
+      return searchableContent.includes(query);
+    });
+  });
+
+  protected onSearchQueryChange(query: string): void {
+    this.searchQuery.set(query);
+  }
 }
