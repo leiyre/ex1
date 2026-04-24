@@ -12,7 +12,8 @@ import { IconComponent } from '../icon/icon.component';
   },
 })
 export class CardOverlayComponent {
-  imageSrc = input<string>('https://placehold.co/600x600');
+  imageSrc = input<string>('/images/overlay-360x480.png');
+  imageSrcset = input<string>('');
   imageAlt = input<string>('');
   title = input.required<string>();
   description = input.required<string>();

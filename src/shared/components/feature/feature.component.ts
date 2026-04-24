@@ -9,11 +9,12 @@ import { DateComponent } from '../date/date.component';
   imports: [ButtonComponent, DateComponent, RouterLink],
   templateUrl: './feature.component.html',
   host: {
-    class: 'flex flex-col lg:flex-row gap-4 bg-surface-card p-8 rounded shadow',
+    class: 'flex flex-col lg:flex-row gap-8 bg-surface-card p-8 rounded shadow',
   },
 })
 export class FeatureComponent {
-  imageSrc = input<string>('https://placehold.co/600x400');
+  imageSrc = input.required<string>();
+  imageSrcset = input<string>('');
   imageAlt = input<string>('');
   datetime = input.required<string>();
   title = input.required<string>();

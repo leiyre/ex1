@@ -13,7 +13,8 @@ import { DateComponent } from '../date/date.component';
   templateUrl: './card.component.html',
 })
 export class CardComponent {
-  imageSrc = input<string>('https://placehold.co/600x400');
+  imageSrc = input.required<string>();
+  imageSrcset = input<string>('');
   imageAlt = input<string>('');
   description = input.required<string>();
   title = input.required<string>();

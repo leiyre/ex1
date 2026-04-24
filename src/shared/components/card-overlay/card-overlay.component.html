@@ -1,5 +1,5 @@
-<img [src]="imageSrc()" [alt]="imageAlt()" class="absolute inset-0 w-full h-full object-cover" loading="lazy"
-    width="400" height="600" />
+<img [src]="imageSrc()" [attr.srcset]="imageSrcset() || null" sizes="(min-width: 64em) 360px, 284px"
+    [alt]="imageAlt()" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="360" height="480" />
 
 <div class="relative min-h-[175px] mt-auto p-5 flex flex-col gap-2 w-full bg-gradient-to-t from-black  to-transparent">
 

@@ -11,14 +11,20 @@ import { SearchFilterComponent } from '../shared/components/search-filter/search
   templateUrl: './app.html',
 })
 export class App {
+  private readonly mockedSrcsetH =
+    '/images/400.png 400w, /images/640.png 640w, /images/960.png 960w, /images/1280.png 1280w';
+  private readonly mockedSrcsetV =
+    '/images/overlay-360x480.png 360w, /images/overlay-720x960.png 720w';
+
   protected readonly title = signal('Challenge 1');
   protected readonly searchQuery = signal('');
   protected readonly cards = [
     {
       route: '/example',
       id: 1,
-      imageSrc: 'https://placehold.co/600x400',
-      imageAlt: 'Imagen card analitica',
+      imageSrc: '/images/640.png',
+      imageSrcset: this.mockedSrcsetH,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
       datetime: '2026-04-18',
       description:
@@ -27,8 +33,9 @@ export class App {
     {
       route: '/example',
       id: 2,
-      imageSrc: 'https://placehold.co/600x400',
-      imageAlt: 'Imagen card ventas',
+      imageSrc: '/images/640.png',
+      imageSrcset: this.mockedSrcsetH,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
       datetime: '2026-04-15',
       description:
@@ -37,8 +44,9 @@ export class App {
     {
       route: '/example',
       id: 3,
-      imageSrc: 'https://placehold.co/600x400',
-      imageAlt: 'Imagen card clientes',
+      imageSrc: '/images/640.png',
+      imageSrcset: this.mockedSrcsetH,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
       datetime: '2026-04-12',
       description:
@@ -47,8 +55,9 @@ export class App {
     {
       route: '/example',
       id: 4,
-      imageSrc: 'https://placehold.co/600x400',
-      imageAlt: 'Imagen card automatizaciones',
+      imageSrc: '/images/640.png',
+      imageSrcset: this.mockedSrcsetH,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
       datetime: '2026-04-09',
       description:
@@ -57,8 +66,9 @@ export class App {
     {
       route: '/example',
       id: 5,
-      imageSrc: 'https://placehold.co/600x400',
-      imageAlt: 'Imagen card reportes',
+      imageSrc: '/images/640.png',
+      imageSrcset: this.mockedSrcsetH,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
       datetime: '2026-04-06',
       description:
@@ -67,8 +77,9 @@ export class App {
     {
       route: '/example',
       id: 6,
-      imageSrc: 'https://placehold.co/600x400',
-      imageAlt: 'Imagen card configuracion',
+      imageSrc: '/images/640.png',
+      imageSrcset: this.mockedSrcsetH,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
       datetime: '2026-04-03',
       description:
@@ -78,8 +89,9 @@ export class App {
   protected readonly cardsOverlay = [
     {
       id: 1,
-      imageSrc: 'https://placehold.co/400x600',
-      imageAlt: 'Imagen card overlay',
+      imageSrc: '/images/overlay-360x480.png',
+      imageSrcset: this.mockedSrcsetV,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum',
       description: 'Lorem ipsum dolor sit amet consectetur.',
       ctaLabel: 'Lorem ipsum',
@@ -88,8 +100,9 @@ export class App {
     },
     {
       id: 2,
-      imageSrc: 'https://placehold.co/400x600',
-      imageAlt: 'Imagen card overlay',
+      imageSrc: '/images/overlay-360x480.png',
+      imageSrcset: this.mockedSrcsetV,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum',
       description: 'Lorem ipsum dolor sit amet consectetur.',
       ctaLabel: 'Lorem ipsum',
@@ -98,7 +111,8 @@ export class App {
     },
     {
       id: 3,
-      imageSrc: 'https://placehold.co/400x600',
+      imageSrc: '/images/overlay-360x480.png',
+      imageSrcset: this.mockedSrcsetV,
       imageAlt: 'Imagen card overlay',
       title: 'Lorem ipsum',
       description: 'Lorem ipsum dolor sit amet consectetur.',
@@ -108,8 +122,9 @@ export class App {
     },
     {
       id: 4,
-      imageSrc: 'https://placehold.co/400x600',
-      imageAlt: 'Imagen card overlay',
+      imageSrc: '/images/overlay-360x480.png',
+      imageSrcset: this.mockedSrcsetV,
+      imageAlt: 'lorem ipsum',
       title: 'Lorem ipsum',
       description: 'Lorem ipsum dolor sit amet consectetur.',
       ctaLabel: 'Lorem ipsum',

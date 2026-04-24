@@ -1,4 +1,6 @@
-<img [src]="imageSrc()" [alt]="imageAlt()" class="min-w-0 flex-1 object-cover rounded" />
+<img [src]="imageSrc()" [attr.srcset]="imageSrcset() || null"
+  sizes="(min-width: 64em) 50vw, 100vw" [alt]="imageAlt()"
+  fetchpriority="high" width="640" height="360" class="min-w-0 flex-1 object-cover rounded w-full" />
 
 <div class="flex-1 flex flex-col gap-4">
   <ui-date [datetime]="datetime()"></ui-date>

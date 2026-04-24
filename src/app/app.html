@@ -4,7 +4,10 @@
 
   <section class="bg-surface-section" aria-label="Lorem ipsum">
     <div class="w-full max-w-screen-2xl mx-auto py-8 px-6 md:py-12 md:px-8 lg:py-24">
-      <article uiFeature imageSrc="https://placehold.co/600x400" imageAlt="" datetime="2026-04-20"
+      <article uiFeature imageSrc="/images/640.png"
+        imageSrcset="/images/400.png 400w, /images/640.png 640w, /images/960.png 960w, /images/1280.png 1280w"
+        imageAlt=""
+        datetime="2026-04-20"
         title="Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id."
         ctaLabel="Lorem ipsum." [ctaRoute]="['/example']"></article>
@@ -24,8 +27,9 @@
     <ul id="search-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
       @for (card of filteredCards(); track card.id) {
       <li>
-        <article uiCard [route]="card.route" [imageSrc]="card.imageSrc" [imageAlt]="card.imageAlt"
-          [description]="card.description" [title]="card.title" [datetime]="card.datetime"></article>
+        <article uiCard [route]="card.route" [imageSrc]="card.imageSrc" [imageSrcset]="card.imageSrcset"
+          [imageAlt]="card.imageAlt" [description]="card.description" [title]="card.title" [datetime]="card.datetime">
+        </article>
       </li>
       }
     </ul>
@@ -49,9 +53,9 @@
       aria-label="Lista de descargas">
       @for (card of cardsOverlay; track card.id) {
       <li class="shrink-0 lg:flex-1 snap-start">
-        <article uiCardOverlay [imageSrc]="card.imageSrc" [imageAlt]="card.imageAlt" [title]="card.title"
-          [downloadUrl]="card.downloadUrl" [downloadName]="card.downloadName" [ctaLabel]="card.ctaLabel"
-          [description]="card.description"></article>
+        <article uiCardOverlay [imageSrc]="card.imageSrc" [imageSrcset]="card.imageSrcset" [imageAlt]="card.imageAlt"
+          [title]="card.title" [downloadUrl]="card.downloadUrl" [downloadName]="card.downloadName"
+          [ctaLabel]="card.ctaLabel" [description]="card.description"></article>
       </li>
       }
     </ul>
