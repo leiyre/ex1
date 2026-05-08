@@ -8,7 +8,8 @@
   /* brand */
   --color-primary: hsla(349, 100%, 45%, 1);
   --color-primary-dark: hsla(349, 100%, 35%, 1);
-
+  /* icons */
+  --color-icon: hsla(226, 46%, 20%, 1);
   /* surfaces */
   --color-surface-page: hsla(0, 0%, 100%, 1);
   --color-surface-section: hsla(240, 5%, 96%, 1);
@@ -27,4 +28,11 @@
 
   /* ajuste el diseño original tiene un contenedor de 1542px sin contar padding - aproximación evitando números mágicos en las clases */
   --breakpoint-2xl: 100em;
+
+
+  /* card overlay */
+  --width-card-overlay: 284px;
+  --width-card-overlay-lg: 360px;
+  --height-card-overlay-content: 175px;
+
 }

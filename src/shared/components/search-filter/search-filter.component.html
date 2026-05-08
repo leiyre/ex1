@@ -2,7 +2,7 @@
          [&:has(:focus-visible)]:ring-primary">
     <label [for]=" id()" class="sr-only">Filtrar resultados</label>
     <svg uiIcon size="sm" name="search" aria-hidden="true"
-        class="absolute left-4 top-1/2 -translate-y-1/2 text-[#1C274C]"></svg>
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-icon"></svg>
     <input type="search" [id]="id()" autocomplete="off" [aria-controls]="idControls()"
         class="w-full pl-8 py-2 outline-none" (input)="onQueryInput($event)" />
 </form>
