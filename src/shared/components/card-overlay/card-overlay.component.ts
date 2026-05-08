@@ -7,8 +7,7 @@ import { IconComponent } from '../icon/icon.component';
   imports: [IconComponent],
   templateUrl: './card-overlay.component.html',
   host: {
-    class:
-      'relative flex overflow-hidden rounded-xl w-card-overlay lg:w-card-overlay-lg aspect-[3/4]',
+    class: 'relative flex overflow-hidden rounded-xl w-71 lg:w-90 aspect-3/4',
   },
 })
 export class CardOverlayComponent {
